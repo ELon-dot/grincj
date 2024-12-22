@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Web App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .coins {
+            font-size: 2em;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Telegram Web App</h1>
+        <p>You have spent <span id="months"></span> months in Telegram.</p>
+        <p>You have <span class="coins" id="coins"></span> Grinch Coins.</p>
+    </div>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        Telegram.WebApp.ready();
+
+        // Предположим, что пользователь присоединился 1 января 2020 года
+        const joinDate = new Date(2020, 0, 1);
+        const currentDate = new Date();
+
+        const monthsInTelegram = (currentDate.getFullYear() - joinDate.getFullYear()) * 12 + (currentDate.getMonth() - joinDate.getMonth());
+        const grinchCoins = monthsInTelegram * 1000;
+
+        document.getElementById('months').innerText = monthsInTelegram;
+        document.getElementById('coins').innerText = grinchCoins;
+
+        // Дополнительно можно передавать информацию от Telegram API
+        const initData = Telegram.WebApp.initData;
+        console.log(initData);
+    </script>
+</body>
+</html>
