@@ -3,8 +3,8 @@ const path = require('path');
 const TelegramBot = require('node-telegram-bot-api');
 
 // Токен вашего бота
-const TOKEN = '7622813957:AAFxx96G-rbcitYzcov6JHMYlqWDBBZm0ac';
-const WEB_APP_URL = '';
+const TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN';
+const WEB_APP_URL = 'https://your-stormkit-app-url'; // URL вашего приложения на Stormkit
 
 // Создаем экземпляр бота
 const bot = new TelegramBot(TOKEN, { polling: true });
